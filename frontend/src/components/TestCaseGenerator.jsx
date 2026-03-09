@@ -25,7 +25,7 @@ function TestCaseGenerator() {
   const handleGenerate = async () => {
 
     if (!feature) {
-      alert("Enter feature description ionasdfa");
+      alert("Enter feature description");
       return;
     }
 

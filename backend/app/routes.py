@@ -1,13 +1,13 @@
 from fastapi import APIRouter
-from .models import FeatureRequest
-from .ai_service import generate_test_cases
+from app.ai_service import generate_test_cases
 
 router = APIRouter()
 
-
 @router.post("/generate-testcases")
-def generate_testcases(request: FeatureRequest):
+async def generate(feature: dict):
 
-    result = generate_test_cases(request.feature)
+    prompt = feature["feature"]
 
-    return result
+    result = generate_test_cases(prompt)
+
+    return {"test_cases": result}

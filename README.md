@@ -1,16 +1,16 @@
-# 🤖 AI Test Case Generator
+# AI Test Case Generator
 
 An AI-powered web application that automatically generates **software test cases** from a feature description using **FastAPI, React, and a Local LLM (Ollama)**.
 
 This project demonstrates how **AI can assist QA engineers and developers** by automatically generating:
 
-* ✅ Positive Test Cases
-* ❌ Negative Test Cases
-* ⚠️ Edge Test Cases
+* Positive Test Cases
+* Negative Test Cases
+* Edge Test Cases
 
 ---
 
-# 🚀 Project Demo
+# Project Demo
 
 User enters a feature description like:
 
@@ -35,7 +35,7 @@ Verify login with empty username and password fields.
 
 ---
 
-# 🏗️ System Architecture
+# System Architecture
 
 ```
 User
@@ -57,7 +57,7 @@ Displayed in UI + CSV Export
 
 ---
 
-# 🧠 Tech Stack
+# Tech Stack
 
 ## Frontend
 
@@ -81,7 +81,7 @@ Displayed in UI + CSV Export
 
 ---
 
-# 📂 Project Folder Structure
+# Project Folder Structure
 
 ```
 AI_Testcase_Generator
@@ -112,9 +112,9 @@ AI_Testcase_Generator
 
 ---
 
-# ⚙️ Installation & Setup
+# Installation & Setup
 
-## 1️⃣ Clone the Repository
+## 1️ Clone the Repository
 
 ```
 git clone https://github.com/your-username/AI_Testcase_Generator.git
@@ -126,7 +126,7 @@ cd AI_Testcase_Generator
 
 ---
 
-# 🖥️ Backend Setup (FastAPI)
+# Backend Setup (FastAPI)
 
 Navigate to backend folder:
 
@@ -168,7 +168,7 @@ http://127.0.0.1:8000
 
 ---
 
-# 🎨 Frontend Setup (React)
+#  Frontend Setup (React)
 
 Open another terminal.
 
@@ -198,7 +198,7 @@ http://localhost:3000
 
 ---
 
-# 🧠 Setup Ollama (Local AI)
+#  Setup Ollama (Local AI)
 
 Install Ollama from:
 
@@ -230,7 +230,7 @@ http://localhost:11434
 
 ---
 
-# 📤 Export Test Cases
+#  Export Test Cases
 
 The application allows users to **download generated test cases as a CSV file**.
 
@@ -242,7 +242,7 @@ Steps:
 
 ---
 
-# 💡 Features
+#  Features
 
 * Generate AI-based test cases
 * Positive / Negative / Edge test scenarios
@@ -254,7 +254,7 @@ Steps:
 
 ---
 
-# 🔮 Future Improvements
+#  Future Improvements
 
 Possible improvements:
 
@@ -267,7 +267,7 @@ Possible improvements:
 
 ---
 
-# 🎯 Skills Demonstrated
+#  Skills Demonstrated
 
 This project demonstrates:
 
@@ -287,7 +287,7 @@ This project demonstrates:
 Shyam Korukonda
 
 GitHub:
-https://github.com/your-username
+https://github.com/shyam-korukonda
 
 ---
 

@@ -1,60 +1,41 @@
+import os
+
 import requests
-import json
-from .prompt_template import create_prompt
+
+# HuggingFace model endpoint
+API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large"
+
+# Replace with your HuggingFace token
+HF_TOKEN = os.getenv("HF_TOKEN")
+
+headers = {
+    "Authorization": f"Bearer {HF_TOKEN}"
+}
 
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
-
-
-def generate_test_cases(feature_description):
-
-    prompt = create_prompt(feature_description)
+def generate_test_cases(prompt):
+    """
+    Sends prompt to HuggingFace model
+    and returns generated test cases
+    """
 
     payload = {
-        "model": "phi",
-        "prompt": prompt,
-        "stream": False,
-        "keep_alive": "2m"
+        "inputs": prompt,
+        "parameters": {
+            "max_new_tokens": 500
+        }
     }
 
-    try:
+    response = requests.post(
+        API_URL,
+        headers=headers,
+        json=payload
+    )
 
-        response = requests.post(
-            OLLAMA_URL,
-            json=payload,
-            timeout=120
-        )
+    result = response.json()
 
-        data = response.json()
+    # HuggingFace returns list
+    if isinstance(result, list):
+        return result[0]["generated_text"]
 
-        ai_text = data.get("response", "")
-
-        # Convert AI text into JSON
-        try:
-            parsed_json = json.loads(ai_text)
-        except:
-            parsed_json = {
-                "test_cases": [
-                    {
-                        "id": "TC01",
-                        "description": "AI response parsing failed",
-                        "steps": "Check AI output formatting",
-                        "expected_result": "AI should return valid JSON"
-                    }
-                ]
-            }
-
-        return parsed_json
-
-    except Exception as e:
-
-        return {
-            "test_cases": [
-                {
-                    "id": "TC01",
-                    "description": "AI request failed",
-                    "steps": "Check Ollama server",
-                    "expected_result": str(e)
-                }
-            ]
-        }
+    return str(result)
